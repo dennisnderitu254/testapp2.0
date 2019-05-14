@@ -48,10 +48,10 @@ def vote(request, question_id):
 			'error_message':"You didn't select a choice.",
 			})
 	else:
-		select_choice.votes += 1
+		selected_choice.votes += 1
 		selected_choice.save()
 		# Always return an HTTPResponseRedirect after successfully dealing
 		# with POST data. This prevents data from being posted twice if a 
 		# user hits the Back Button
-		return HTTPResponseRedirect(reverse('polls:results',
+		return HttpResponseRedirect(reverse('polls:results',
 			args=(question.id,)))
